@@ -1,23 +1,40 @@
-const conf = require('./config.json');
+const { PREFIX, TOKEN } = require('./config.json');
 const discord = require('discord.js');
 const client = new discord.Client();
 
-client.on('message', async message => {
-	client.user.setActivity('over the page | prefix \\', {
-		type:'WATCHING',
-	});
+client.once('ready', () => {
+	console.log('logged in');
+});
+client.on('message', (message) => {
 
-	if(message.content.toLowerCase() === '\\bing') {
-		return message.channel.send('bong');}
+	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-	if(message.content.toLowerCase() === '\\meaning') {
-		return message.channel.send(conf.meaning);}
+	const args = message.content.slice(PREFIX.length).trim().split(' ');
+	const command = args.shift().toLowerCase();
 
-	if(message.content.toLowerCase() === '\\repo') {
+	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });
+
+	if(message.content === '\\bing') {
+		message.channel.send('bong');}
+
+	else if (message.content.toLowerCase() === '\\bip') {
+		message.channel.send('bop');}
+
+	else if (message.content.toLowerCase() === '\\repo') {
 		return message.channel.send('https://github.com/AnimeKato/shitcord-bot/');}
 
-	if (message.content === '\\server') {
-		// eslint-disable-next-line no-undef
-		message.channel.send('This guild\'s name is:', $(message.guild.name));}});
+	else if (message.content === `${PREFIX}server`) {
+		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);}
 
-client.login(conf.token);
+	else if (message.content === `${PREFIX}user-info`) {
+		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);}
+
+	else if (command === 'inv') {
+		if (!args.length) {
+			return message.channel.send(`${message.author}: Valid args: \`shitpage\``);
+		}
+		else if (args[0] === 'shitpage') {
+			return message.channel.send('discord.gg/4nh2SX7');}
+	}
+});
+client.login(TOKEN);
