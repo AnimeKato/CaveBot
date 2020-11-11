@@ -14,13 +14,13 @@ client.on('message', (message) => {
 
 	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });
 
-	if(message.content === '\\bing') {
+	if(command === 'bing') {
 		message.channel.send('bong');}
 
-	else if (message.content.toLowerCase() === '\\bip') {
+	else if (command === 'bip') {
 		message.channel.send('bop');}
 
-	else if (message.content.toLowerCase() === '\\repo') {
+	else if (command === 'repo') {
 		return message.channel.send('https://github.com/AnimeKato/shitcord-bot/');}
 
 	else if (command === 'server') {
