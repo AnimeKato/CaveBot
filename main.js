@@ -31,10 +31,13 @@ client.on('message', (message) => {
 
 	else if (command === 'inv') {
 		if (!args.length) {
-			return message.channel.send(`${message.author}: Valid args: \`shitpage\``);
+			return message.channel.send(`${message.author}: The invite command. Valid args: \`shitpage\` \`bot\``);
 		}
 		else if (args[0] === 'shitpage') {
 			return message.channel.send('discord.gg/4nh2SX7');}
+		else if (args[0] === 'bot') {
+			return message.channel.send('As the bot is not public, you must host the bot yourself. **Please DO NOT host a public version of this bot!!**\n If Kat wants there to be a publicly hosted version of the bot, she will do it herself.\n See https://github.com/AnimeKato/shitcord-bot#hosting-the-bot for more info.');
+		}
 	}
 });
 client.login(TOKEN);
