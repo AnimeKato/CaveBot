@@ -23,10 +23,10 @@ client.on('message', (message) => {
 	else if (message.content.toLowerCase() === '\\repo') {
 		return message.channel.send('https://github.com/AnimeKato/shitcord-bot/');}
 
-	else if (message.content === `${PREFIX}server`) {
+	else if (command === 'server') {
 		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);}
 
-	else if (message.content === `${PREFIX}user-info`) {
+	else if (command === 'user-info') {
 		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);}
 
 	else if (command === 'inv') {
