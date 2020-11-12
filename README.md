@@ -36,4 +36,8 @@ Replacing `bot-prefix` with the prefix you want, and `your-bot-token` with your 
 Then is adding the bot to your server. To do this. on the bot dashboard, click "OAuth2" on the side. There, from "SCOPES", select `bot`, then from "PERMISSIONS", select "Administrator". Copy the link from the text box under "SCOPES", Open a new tab, paste in the link you just copied, and press Enter.
 ![The link to copy](https://imgur.com/zDw2maTl.png) 
 (The link to copy)\
-Last, install Node.js and run the bot. To do this, go to the [Node.js Download page](https://nodejs.org/en/download/) and download one of the installers. If you need help, go to the bottom of the page and click one of the green links. Remember, **Please DO NOT host a public version of this bot!!**
+Last, install Node.js and run the bot. To do this, go to the [Node.js Download page](https://nodejs.org/en/download/) and download one of the installers. If you need help, go to the bottom of the page and click one of the green links. Then, with your cmd or terminal window in the bot folder, type:
+```bash
+node main.js
+```
+Remember, **Please DO NOT host a public version of this bot!!**
