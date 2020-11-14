@@ -3,5 +3,5 @@ module.exports = {
 	description: 'display bot\'s version info',
 	aliases: ['ver'],
 	execute(message) {
-		message.channel.send('Bot version: BETA2');}
+		message.channel.send('Bot version: BETA2.1');}
 };
