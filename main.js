@@ -1,43 +1,42 @@
 const { PREFIX, TOKEN } = require('./config.json');
+const fs = require('fs');
 const discord = require('discord.js');
 const client = new discord.Client();
+client.commands = new discord.Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
 client.once('ready', () => {
 	console.log('logged in');
-});
+	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });});
+
 client.on('message', (message) => {
 
 	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-	const args = message.content.slice(PREFIX.length).trim().split(' ');
-	const command = args.shift().toLowerCase();
+	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
+	const commandName = args.shift().toLowerCase();
 
-	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });
+	if (command.guildOnly && message.channel.type === 'dm') {
+		return message.reply('Handler threw an error: `command not executable outside guilds!`');}
 
-	if(command === 'bing') {
-		message.channel.send('bong');}
+	if (command.args && !args.length) {
+		return message.channel.send('Handler threw an error: `not enough arguments passed!`');
+	}
 
-	else if (command === 'bip') {
-		message.channel.send('bop');}
+	const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	else if (command === 'repo') {
-		return message.channel.send('https://github.com/AnimeKato/shitcord-bot/');}
+	if (!command) return;
 
-	else if (command === 'server') {
-		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}`);}
-
-	else if (command === 'user-info') {
-		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);}
-
-	else if (command === 'inv') {
-		if (!args.length) {
-			return message.channel.send(`${message.author}: The invite command. Valid args: \`shitpage\` \`bot\``);
-		}
-		else if (args[0] === 'shitpage') {
-			return message.channel.send('discord.gg/4nh2SX7');}
-		else if (args[0] === 'bot') {
-			return message.channel.send('As the bot is not public, you must host the bot yourself. **Please DO NOT host a public version of this bot!!**\n If Kat wants there to be a publicly hosted version of the bot, she will do it herself.\n See https://github.com/AnimeKato/shitcord-bot#hosting-the-bot for more info.');
-		}
+	try {
+		command.execute(message, args);
+	} catch (error) {
+		console.error(error);
+		message.channel.send('Handler threw an error: `unknown error.`');
 	}
 });
 client.login(TOKEN);
