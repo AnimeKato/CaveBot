@@ -16,12 +16,11 @@ client.once('ready', () => {
 client.on('message', (message) => {
 
 	const command = client.commands.get(commandName)
-	|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
-	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
-
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
+
+	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
 	if (command.guildOnly && message.channel.type === 'dm') {
 		return message.reply('Handler threw an error: `command not executable outside guilds!`');}
