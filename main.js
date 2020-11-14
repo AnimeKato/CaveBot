@@ -15,6 +15,9 @@ client.once('ready', () => {
 
 client.on('message', (message) => {
 
+	const command = client.commands.get(commandName)
+	|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
 	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
 
 	const args = message.content.slice(PREFIX.length).trim().split(/ +/);
@@ -26,9 +29,6 @@ client.on('message', (message) => {
 	if (command.args && !args.length) {
 		return message.channel.send('Handler threw an error: `not enough arguments passed!`');
 	}
-
-	const command = client.commands.get(commandName)
-		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
 
