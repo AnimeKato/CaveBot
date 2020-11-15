@@ -7,7 +7,7 @@ Bot for the Shitpage discord server.
 Thank you.
 
 # Contributing
-Feel free to fork this repo and submit a pull request, maybe even fix my spaghetti code if you want.
+Feel free to fork this repo and submit a pull request, maybe even fix my code if you want.
 
 # Hosting The Bot
 First, create an application with a bot. To do this, go to the [Discord Developer Dashboard](https://discord.com/developers/applications), and click "New Application", as shown: 
@@ -36,7 +36,11 @@ Replacing `bot-prefix` with the prefix you want, and `your-bot-token` with your 
 Then is adding the bot to your server. To do this. on the bot dashboard, click "OAuth2" on the side. There, from "SCOPES", select `bot`, then from "PERMISSIONS", select "Administrator". Copy the link from the text box under "SCOPES", Open a new tab, paste in the link you just copied, and press Enter.
 ![The link to copy](https://imgur.com/zDw2maTl.png) 
 (The link to copy)\
-Last, install Node.js and run the bot. To do this, go to the [Node.js Download page](https://nodejs.org/en/download/) and download one of the installers. If you need help, go to the bottom of the page and click one of the green links. Then, with your cmd or terminal window in the bot folder, type:
+Last, install Node.js, discord.js, and run the bot. To do this, go to the [Node.js Download page](https://nodejs.org/en/download/) and download one of the installers. If you need help, go to the bottom of the page and click one of the green links. Then, with your cmd or terminal window in the bot folder, type:
+```bash
+npm install discord.js
+```
+and then:
 ```bash
 node main.js
 ```
