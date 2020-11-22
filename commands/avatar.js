@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'avatar',
-	description: 'get a user\'s avatar',
+	description: 'get your avatar',
 	aliases: ['av'],
 	execute(message) {
 		if (!message.mentions.users.size) {

@@ -10,6 +10,12 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 client.once('ready', () => {
+
+	client.guilds.cache.array().forEach(guild => {
+		console.log('Name: ' + guild.name + '\nId: ' + guild.id + '\nMembercount: ' + guild.memberCount);
+	});
+
+	console.log(client.guilds.cache.array());
 	console.log('logged in');
 	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });});
 

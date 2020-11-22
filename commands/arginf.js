@@ -2,7 +2,7 @@ module.exports = {
 	name: 'arginf',
 	description: 'Return info about the arguments passed.',
 	args: true,
-	aliases: ['ai', 'args-info'],
+	aliases: ['ai'],
 	execute(message, args) {
 		if (args[0] === 'foo') {
 			return message.channel.send('bar');}
