@@ -7,13 +7,11 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}
+	client.commands.set(command.name, command);}
 client.once('ready', () => {
 
 	client.guilds.cache.array().forEach(guild => {
-		console.log('Name: ' + guild.name + '\nId: ' + guild.id + '\nMembercount: ' + guild.memberCount);
-	});
+		console.log('Name: ' + guild.name + '\nId: ' + guild.id + '\nMembercount: ' + guild.memberCount);});
 
 	console.log(client.guilds.cache.array());
 	console.log('logged in');
@@ -32,16 +30,14 @@ client.on('message', (message) => {
 		return message.reply('Handler threw an error: `command not executable outside guilds!`');}
 
 	if (command.args && !args.length) {
-		return message.channel.send('Handler threw an error: `not enough arguments passed!`');
-	}
+		return message.channel.send('Handler threw an error: `not enough arguments passed!`');}
 
 	if (!command) return;
 
 	try {
-		command.execute(message, args);
-	} catch (error) {
+		command.execute(message, args);}
+		catch (error) {
 		console.error(error);
-		message.channel.send('Handler threw an error: `unknown error.`');
-	}
-});
+		message.channel.send('Handler threw an error: `unknown error.`');}});
+
 client.login(TOKEN);
