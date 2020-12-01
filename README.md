@@ -1,16 +1,16 @@
-=======
-# Shitcord bot
-Bot for the Shitpage discord server.
 
-# Please...
+## CaveBot
+A bot for the Shitpage discord server.
+
+## Please...
 ...DO feel free to host this bot yourself for you own server.\
 ...DO NOT host a public version of this bot.\
 Thank you.
 
-# Contributing
+## Contributing
 Feel free to fork this repo and submit a pull request, maybe even fix my code if you want.
 
-# Hosting The Bot
+## Hosting The Bot
 First, create an application with a bot. To do this, go to the [Discord Developer Dashboard](https://discord.com/developers/applications), and click "New Application", as shown: 
 
 ![Image](https://imgur.com/AcIlxMsl.png)
@@ -46,4 +46,3 @@ and then:
 node main.js
 ```
 Remember, **Please DO NOT host a public version of this bot!!**
-
