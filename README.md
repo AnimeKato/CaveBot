@@ -1,3 +1,4 @@
+=======
 # Shitcord bot
 Bot for the Shitpage discord server.
 
@@ -45,3 +46,4 @@ and then:
 node main.js
 ```
 Remember, **Please DO NOT host a public version of this bot!!**
+
