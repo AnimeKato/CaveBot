@@ -29,7 +29,7 @@ At this point, you will want to create your `config.json` file. To do this, you,
 ```cmd
 explorer
 ```
-And an explorer window should open in the bot's directory. If you are on Linux, run your file manager in the terminal and it will open in the bot's directory. Next, create a file called `config.json`, and open it in a text editor like Notepad or Mousepad, and paste in the following:
+And an explorer window should open in the bot's directory. If you are on Linux, run your file manager in the terminal and it should open in the bot's directory. Next, create a file called `config.json`, and open it in a text editor like Notepad or Mousepad, and paste in the following:
 ```json
 {"PREFIX": "bot-prefix", "TOKEN": "your-bot-token"}
 ```
