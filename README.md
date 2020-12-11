@@ -19,17 +19,17 @@ And add a name.
 
 Next, go to "Bot" on the left and add a bot. Then use `git` to clone the source code:
 ```bash
-git clone https://github.com/animekato/shitcord-bot.git
+git clone https://github.com/animekato/CaveBot.git
 ```
 And cd to the bot dir:
 ```bash
-cd shitcord-bot
+cd CaveBot
 ```
 At this point, you will want to create your `config.json` file. To do this, you, on Windows, should be able to type:
 ```cmd
 explorer
 ```
-And an explorer window should open in the bot's directory. If you are on Linux, run your file manager in the terminal and it should open in the bot's directory. Next, create a file called `config.json`, and open it in a text editor like Notepad or Mousepad, and paste in the following:
+And an explorer window should open in the bot's directory. If you are on Linux, run your file manager in the terminal and it should open in the bot's directory. Next, create a file called `config.json`, and open it in a text editor like Notepad, Mousepad, or Vim and paste in the following:
 ```json
 {"PREFIX": "bot-prefix", "TOKEN": "your-bot-token"}
 ```
