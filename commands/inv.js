@@ -1,5 +1,5 @@
-4
-rts = {
+const discord = require("discord.js");
+module.exports = {
 		name: 'inv',
 		description: 'invite command',
 		execute(message, args) {

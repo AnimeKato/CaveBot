@@ -1,3 +1,4 @@
+const discord = require("discord.js");
 module.exports = {
 	name: 'help',
 	description: 'link to help in github repo',
