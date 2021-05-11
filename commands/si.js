@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 module.exports = {
 	name: 'si',
-    	guildOnly: true
+    	guildOnly: true,
   description: Print server information
   aliases: ['serverinfo'],
 execute(message) {
