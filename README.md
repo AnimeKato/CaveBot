@@ -39,7 +39,13 @@ Then is adding the bot to your server. To do this. on the bot dashboard, click "
 (The link to copy)\
 Last, install Node.js, discord.js, and run the bot. To do this, go to the [Node.js Download page](https://nodejs.org/en/download/) and download one of the installers. If you need help, go to the bottom of the page and click one of the green links. Then, with your cmd or terminal window in the bot folder, type:
 ```bash
-npm install discord.js
+sudo npm install --global yarn
+yarn add discord.js
+```
+on Linux, or, on Windows as Administrator,\
+```
+npm install --global yarn
+yarn add discord.js
 ```
 and then:
 ```bash

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "discord": "^0.8.2",
+    "discord.js": "^12.5.3"
+  },
+  "name": "CaveBot",
+  "version": "2.1.2-BETA",
+  "description": "Bot for the Shitpage discord server.",
+  "main": "main.js",
+  "repository": "https://github.com/AnimeKato/CaveBot",
+  "author": "AnimeKato <o0katchan0o@tuta.io>",
+  "license": "GNU GENERAL PUBLIC LICENSE, Version 3",
+  "private": false
+}
