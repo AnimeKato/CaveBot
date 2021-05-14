@@ -10,12 +10,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);}
 client.once('ready', () => {
 
-	client.guilds.cache.array().forEach(guild => {
-		console.log('Name: ' + guild.name + '\nId: ' + guild.id + '\nMembercount: ' + guild.memberCount);});
-
-	console.log(client.guilds.cache.array());
 	console.log('logged in');
-	client.user.setActivity('over the page | \\repo', { type: 'WATCHING' });});
+	client.user.setActivity('over the web | \\repo', { type: 'WATCHING' });
+});
 
 client.on('message', (message) => {
 
@@ -24,20 +21,21 @@ client.on('message', (message) => {
 	const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+	if(!message.content.startsWith(PREFIX) || message.author.bot) return;
 
-	if (command.guildOnly && message.channel.type === 'dm') {
-		return message.reply('Handler threw an error: `command not executable outside guilds!`');}
+	if(command.guildOnly && message.channel.type === 'dm') {
+		return message.reply('fatal: command not executable outside guilds');}
 
-	if (command.args && !args.length) {
-		return message.channel.send('Handler threw an error: `not enough arguments passed!`');}
+	if(command.args && !args.length) {
+		return message.channel.send('fatal: not enough arguments');}
 
-	if (!command) return;
+	if(!command) return;
 
 	try {
 		command.execute(message, args);}
-		catch (error) {
+		catch(error) {
 		console.error(error);
-		message.channel.send('Handler threw an error: `unknown error.`');}});
+		message.channel.send('Handler threw an error: `unknown error.`');}
+});
 
 client.login(TOKEN);
